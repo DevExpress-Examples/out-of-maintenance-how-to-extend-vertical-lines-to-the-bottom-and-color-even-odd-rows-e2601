@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApplication21.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        Title="MainWindow" Height="350" Width="525" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        dxc:ThemeManager.ThemeName="Azure">
+    <Grid>
+        <dxg:GridControl x:Name="grid" AutoPopulateColumns="True">
+            <dxg:GridControl.Resources>
+                <DataTemplate x:Key="{dxg:GridRowThemeKey ResourceKey=DataRowsTemplate}">
+                    <Border x:Name="innerBorder" Background="LightGray" BorderBrush="{DynamicResource InnerBorderColorBrush}" Margin="0,0,0,-1">
+                        <Grid>
+                            <Border Margin="0,10,0,0">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0,21" StartPoint="0,0" SpreadMethod="Reflect" MappingMode="Absolute">
+                                        <GradientStop Color="LightGray" Offset="0" />
+                                        <GradientStop Color="LightGray" Offset="0.5" />
+                                        <GradientStop Color="Bisque" Offset="0.5" />
+                                        <GradientStop Color="Bisque" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <ItemsControl Margin="{Binding Path=(dxg:GridControl.ActiveView).ScrollingMargin, RelativeSource={RelativeSource Self}}" ItemsSource="{Binding Path=(dxg:GridControl.ActiveView).VisibleColumns, RelativeSource={RelativeSource Self}}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="{Binding Path=ActualDataWidth}" BorderBrush="{DynamicResource {dxg:GridRowThemeKey ResourceKey=GridDataRowDelimiterBrush}}" BorderThickness="1,1,1,1" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <dxg:GridViewDataRowsControl />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </dxg:GridControl.Resources>
+            <dxg:GridControl.View>
+                <dxg:TableView RowStyle="{x:Null}" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</Window>
