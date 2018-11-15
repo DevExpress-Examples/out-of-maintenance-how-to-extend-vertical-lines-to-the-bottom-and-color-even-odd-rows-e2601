@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/WpfApplication21/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/WpfApplication21/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/WpfApplication21/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/WpfApplication21/MainWindow.xaml))
+<!-- default file list end -->
 # How to extend vertical lines to the bottom and color even/odd rows
 
 
